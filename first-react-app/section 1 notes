@@ -1,0 +1,142 @@
+//////////////////////
+// Lecture 5
+jsx looks like HTML but is actually converted to js behind the scenes.
+It's about writing custom html elements.
+both .jsx and .js files are valid. 
+
+
+/////////////////////
+//Lecture 8 
+
+Two kinds of applications:
+
+single page- Only one html page content is re-rendered client side (the most popular type because better user 					experience -it's faster.) The page constists of react components managed by a root react component. 
+			We typically only have one reactDOM.render() call.  
+multipage- Multiple html pages, content is rendered on the server. There is no root component and individual 					components don't know of each other's existence. One reactDOM.render() call per component.
+
+/////////////////////
+//The build workflow
+dependency management tool NPM or Yarn
+Bundler - webpack
+compiler - babel
+dev server
+
+
+/////////////////////
+//create react app
+This is a tool that takes care of the build workflow for us
+-npm install create-react-app -g
+-create-react-app first-react-app
+npm start - starts dev server
+created first-react-app folder 
+
+/////////////////////////
+//Understanding the folder structure
+In index.html, the root div is where we render the application. This correspondes to root in index.js.
+manifest.json is where you put general information e.g. author etc
+
+
+///////////////////// Section 3 Notes - Understanding Base Features and syntax
+
+//////////////////////
+//component basics
+index.js imports the different components and then these get rendered into the root div in index.html
+react components MUST render some HTML to the DOM
+
+
+//////////////////////
+//jsx restrictions
+can't use "class" instead have to use className. onece it has been redered it turns into class.
+you can only return one root element e.g:
+this is fine
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <h1> Hi, I'm a React App</h1>
+      </div>
+    );
+    }
+}
+
+this isn't:
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <h1> Hi, I'm a React App</h1>
+      </div>
+	  <h2>won't work</h2>
+    );
+    }
+}
+
+This has however losened somewhat with react 16 and it is possible to return more than one element, although it is still best practice to wrap every component into one element.
+
+////////////////////////
+//creating a functional component 
+Name component containing folders, and the component JS file and the component itself with a capital.
+Naming components with a capital allows react to recognise them different from the html elements e.g. <div>.
+
+When creating components, you have the choice between two different ways:
+
+-Functional components (also referred to as "presentational", "dumb" or "stateless" components) => const cmp = () => { return <div>some JSX</div> } (using ES6 arrow functions as shown here is recommended but optional)
+
+-class-based components (also referred to as "containers", "smart" or "stateful" components) => class Cmp extends Component { render () { return <div>some JSX</div> } }
+
+/////////////////////////
+//outputting dynamic content 
+To include js in your component, wrap the js in {}
+
+/////////////////////////
+//Working with props
+props  allow you to pass data from a parent (wrapping) component to a child (embedded) component.
+
+/////////////////////////
+//Understanding the children property
+use props.children access the text between components e.g. <Person>My Hobbies: table tennis</Person>
+
+
+/////////////////////////
+//Understnding and using state
+state is a property tht is only available in components that extend the component class. 
+It is not available in function components.
+Whilst props allow you to pass data down the component tree (and hence trigger an UI update), state is used to change the component, well, state from within. Changes to state also trigger an UI update.
+
+
+/////////////////////////////
+//Handling events with Methods
+
+////////////////////////////
+//manipulating the state 
+see setState in app.js - This merges the differences between setState and state.
+
+/////////////////////////////
+//Functional (stateless) vs class (stateful) Components
+you should use the normal function component as often as possible because they are simple, it's clear what they do, and most importantly because they don't alter the state.
+The state should only be able to be affected by a few select containers such as in app.js.
+App is a container because it contains some of our appliction state.
+
+
+///////////////////////////
+//passing method references between components
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
