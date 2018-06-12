@@ -120,6 +120,30 @@ App is a container because it contains some of our appliction state.
 
 ///////////////////////////
 //passing method references between components
+It is common practice to pass methods as props, therefore components that don't have direct access to the state, have access to methods that can manipulate it. (see that nameChangeHandler is passed to the person component as a prop and this then can alter the state).
+
+
+//////////////////////////
+//Adding two way binding 
+onChange gets fired everytime the input changes
+two way binding is updating in real time
+
+
+////////////////////////////
+//Adding styling with stylesheets
+don't forget to inport the css files
+webpack allows us to import css files into JS files
+
+
+
+
+
+
+
+
+
+
+
 
 
 

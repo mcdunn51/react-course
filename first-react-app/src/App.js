@@ -12,16 +12,30 @@ class App extends Component {
   }
 
   //a handler is a function that handles an event and should be named as so
-  nameChangeHandler = () => {
+  nameChangeHandler = (newAge) => {
     // console.log('Was clicked!');
     //to update the state:
     // don't do this: this.state.persons[0].name = "Matthew";
     // instead, use setState. This merges the differences between setState and state.
     this.setState({
       persons: [
-        {name: 'Matthew', age: 28},
+        {name: 'Matthew', age: newAge},
+        {name: 'Pamela', age: 60},
       ] 
-    });
+    })
+  }
+
+  nameChangeHandler2 = (event) => {
+    // console.log('Was clicked!');
+    //to update the state:
+    // don't do this: this.state.persons[0].name = "Matthew";
+    // instead, use setState. This merges the differences between setState and state.
+    this.setState({
+      persons: [
+        {name: event.target.value, age: 28},
+        {name: 'Paul', age: 64},
+      ] 
+    })
   }
 
 
@@ -29,11 +43,16 @@ class App extends Component {
     return (
       <div className="App">
         <h1> Hi, I'm a React App</h1>
-        {/* //notice capital C */}
-        <button onClick={this.nameChangeHandler}></button>
-        <Person name="{this.state.persons[0].name" age="28" />
-        <Person name="Paul" age="64">My Hobbies: table tennis</Person>
-        <Person name="James" age="22" />
+        {/* //notice capital C in onClick */}
+        
+        <button onClick={this.nameChangeHandler.bind(this, "29")}>Button</button>
+
+        {/* another way you could call the function is (this way can be inefficient) (remember a arrow function like this automatically returns): 
+        <button onClick={() => this.nameChangeHandler('Matthew')}>Button</button> */}
+
+        <Person changed={this.nameChangeHandler2} name={this.state.persons[0].name} age={this.state.persons[0].age} />
+        <Person click={this.nameChangeHandler} name={this.state.persons[1].name} age={this.state.persons[1].age}>My Hobbies: table tennis</Person>
+        <Person name="James" age="22"/>
       </div>
     );
 
