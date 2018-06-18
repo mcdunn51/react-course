@@ -135,6 +135,16 @@ don't forget to inport the css files
 webpack allows us to import css files into JS files
 
 
+///////////////////
+//Inline styles 
+the advatage of inline styles is that you can scope them more precisely
+in react apps things are often styled with JS 
+JSX has a style={} property (see the styling for the button)
+you save the style as a variable and apply it to the element you want to style.  
+the disadvatage of inline styles is that you can't use the full power of css.
+
+
+
 
 
 

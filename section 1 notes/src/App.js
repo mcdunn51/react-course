@@ -40,12 +40,20 @@ class App extends Component {
 
 
   render() {
+    const style = {
+      backgroundColor: 'white',
+      font: 'inherit',
+      border: '1px solid blue',
+      padding: '8px',
+      cursor: 'pointer'
+    };
+
     return (
       <div className="App">
         <h1> Hi, I'm a React App</h1>
         {/* //notice capital C in onClick */}
         
-        <button onClick={this.nameChangeHandler.bind(this, "29")}>Button</button>
+        <button style={style} onClick={this.nameChangeHandler.bind(this, "29")}>Button</button>
 
         {/* another way you could call the function is (this way can be inefficient) (remember a arrow function like this automatically returns): 
         <button onClick={() => this.nameChangeHandler('Matthew')}>Button</button> */}
