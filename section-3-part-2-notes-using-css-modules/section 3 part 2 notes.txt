@@ -1,0 +1,20 @@
+///////////////////////////
+//Enabling and using CSS Modules
+for example scoping person.css to Person.js only 
+In order to enable css modules you have to get rid of the radium stuff we used, and edit the build flow.
+make sure to commit before running eject.
+running the eject script does this.
+running eject allows us to see and edit the build workflow. 
+In the webpack.config.dev file scroll down to modules then where it says test: /\.css$/. Add modules:true and localIdentName: '[name]__[local]__[hash:base64:5]' in the options object.
+Do the same in webpack.config.prod file.
+then import Classes from './App.css';
+this will import the classes in app.css as a JS object, that will give you access to a string version of your CSS.
+if you then want to apply a particular class to an element: <div className={classes.App}> (where App is one of the css classes in app.css)
+once you've changed the build process you need to start it again. 
+also simply doing: import './Person.css'; will no longer work. it has to be: import classes from './Person.css'; 
+
+//////////////////////////
+//Adding Pseudo selectors
+
+/////////////////////////
+//adding media queries 
