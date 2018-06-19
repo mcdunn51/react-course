@@ -1,0 +1,23 @@
+//////////////////////////////section 3 notes 
+The problem using global styles is they are applied to everything, the problem with inline styles is you can't use many of the features of CSS.
+
+/////////////////
+//setting styles dynamically
+dynamically change button style depending on wether we're showing persons or not.
+
+
+//////////////////
+//setting class names dynamically
+if there is 2 or less persons showing make the "this is worki9ng paragraph" bold
+if there is 1 or less persons showing make it red and bold
+
+///////////////////
+//radium
+as standard you can't use psuedo classes and media queries for inline styles in react so you can install radium which allows you to do this.
+npm install radium
+you can use it on components
+export default Radium(App);
+wrap psuedo selectors in ''
+
+///////////////////////////
+//using radium for media queries 
