@@ -1,0 +1,44 @@
+//////////////////////////// section 2 notes 
+
+////////////////////////////
+//conditional rendering
+remember that curley braces are used to inject javascript expressions into the JSX.
+wrap what you want to inject into {} and use a ternary statement to conditionally render it 
+The example here is to show to person components upon clicking the button.
+
+//////////////////////
+//Handling dynamic content the JS way
+putting the content you want to render within the return function can get confusing, so instead put it just after the render function and use an if statement.
+
+//////////////////////
+//outputting lists 
+to output lists more dynamically into components, call .map on them.
+
+////////////////////
+//lists and state
+made is so that when a person component is clicked, deletePersonHandler is called.
+
+///////////////////////////////
+//Updating state immutably
+because objects and arrays are reference types in JavaScript, rather than updating the original persons object in the deletePersonHandler by splicing it, it is better to create a copy of the object using .slice() and then go on to mutate it (in this case splice it) and then go on to update the state. 
+always update state in an immutable fasion i.e. don't mutate the original state first- create a copy, then mutate it, then update state. 
+
+///////////////////////////////
+//lists and keys 
+A “key” is a special string attribute you need to include when creating lists of elements i.e. mapping an array into a JSX component.
+Keys help React identify (behind the scenes) which items have changed, are added, or are removed - it's to help compare the DOM to the virtual DOM.
+So in the case of the Persons component, each time a person is clicked on and deleted react needs to know what has changed.  
+The key needs to be unique to each element in the array (but you can't use index, because if one of the elements is deleted, then each item in the array will get a new index) so I created id's for each of the persons and used this instead.
+
+///////////////////////////////
+//flexible lists
+In the name changed handler, I set up two way binding, so that the list is now completely flexible.
+
+
+
+
+
+
+
+
+virtual DOM
