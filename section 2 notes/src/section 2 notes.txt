@@ -35,10 +35,3 @@ The key needs to be unique to each element in the array (but you can't use index
 In the name changed handler, I set up two way binding, so that the list is now completely flexible.
 
 
-
-
-
-
-
-
-virtual DOM
