@@ -1,0 +1,128 @@
+////////////////////////////////section 5 notes 
+
+////////////////////
+//a better project structure 
+Components are THE core feature of react
+
+The question is what should go into it's own component and what should go into root?
+
+The render (i.e. within return) method shouldn't contain too much JSX. It should be lean.
+
+each component should haave a clear purpose
+
+added:
+a persons component
+a components folder
+assets folder - for pictures etc
+containers - holds all the containers such as app.js app.css
+cockpit folder and cockpit.js file 
+
+////////////////////////
+//splitting an app into components
+
+
+///////////////////////
+//comparing stateless and stateful components
+so components that extend the component class (remeber you can only use state here) VS components that are just functions.
+
+stateful components:
+class xy extends Components
+can access state
+can use lifecycle hooks
+access state and props using "this" e.g. this.state.xy & this.props.xy
+Use only if you need to manage State or access to lifecycle Hooks.
+You can define methods
+
+stateless:
+access props via props - e.g props.xy
+
+try to create function components as often as possible - this is because these have a narrow focus and a clear responsibility. 
+If you were to try and manage state in every component, it would be hard to keep track of.
+
+you can access props in the app component, you must preceed it with "this" (see appTitle in app.js - this recieves the a prop from index.js).
+
+///////////////////////
+//component lifecycle
+is when react creates a component i.e. instantiates and renders a component it runs through multiple lifecycle phases and we can define methods in stateful components which react will execute which allows us to run some code during some of these lifecycle phases.
+
+see http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/ for a lifecycle diagram.
+
+The three react life cycle phases are:
+Mounting 
+Updating
+Unmounting 
+Error Handling
+
+Each component has several “lifecycle methods” that you can override to run code at particular times in the process. In the list below, non-commonly used lifecycle methods are *'d. The rest of them exist for relatively rare use cases.
+
+                                                        Mounting
+These methods are called in the following order when an instance of a component is being created and inserted into the DOM:
+
+constructor()
+*static getDerivedStateFromProps()
+render()
+componentDidMount()
+
+                                                        Updating
+An update can be caused by changes to props or state. These methods are called in the following order when a component is being re-rendered:
+
+*static getDerivedStateFromProps()
+*shouldComponentUpdate()
+render()
+*getSnapshotBeforeUpdate()
+componentDidUpdate()
+
+                                                       Unmounting
+This method is called when a component is being removed from the DOM:
+componentWillUnmount()
+
+                                                     Error Handling
+This method is called when there is an error during rendering, in a lifecycle method, or in the constructor of any child component.
+
+
+*componentDidCatch()
+
+//////////////////////////////
+//converting stateless to stateful components
+if you want to use a lifecycle method, it has to be in a statefull component. 
+turned person and persons into stateful components by:
+
+changing the function to class Persons extends Component
+added a render function and put the JSX into it 
+imported react {component}
+exported Persons (capital P)
+used "this" for props
+
+did same for person component
+
+
+/////////////////////////
+//Component creation lifecycle in action
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

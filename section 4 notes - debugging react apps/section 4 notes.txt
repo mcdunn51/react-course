@@ -1,0 +1,23 @@
+/////////////////////////////////////// section 4 notes
+To solve logical errors you can use source maps.
+within DevTools if you go to the sources tab, in the left pane you can see your code structure (i.e. the unbundled code)
+you can then pause the code and use the chrome debugger tools to find the error.
+
+//////////////////////
+//working with the react developer tools
+chrome extension.
+allows you to see components, props, state, keys etc
+
+//////////////////////
+//using error boundaries 
+if a problem occurs for example you can't retrieve some information from the server you can catch it using ErrorBoundaries. 
+These are a new component added in React 16
+see ErrorBoundary.js (you can call it what you want)
+You create the ErrorBoundary component the same way as we made the app component.
+componentDidCatch is a react method that recieves the error and other information passed into it by react will be executed whenever a componet we wrap with the ErrorBoundary class throws an error.
+imported it into the app.js file and wrapped the person componet with it.
+ErrorBoundary is a higher order component - it wraps another component.
+moved key={person.id} inside of <ErrorBoundary> because key always has to be on the outer element in a .map method
+don't wrap everything in ErrorBoundaries - only wrap code that may fail due to circumstances outside of your control.
+
+

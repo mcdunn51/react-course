@@ -18,3 +18,8 @@ also simply doing: import './Person.css'; will no longer work. it has to be: imp
 
 /////////////////////////
 //adding media queries 
+
+
+
+
+
