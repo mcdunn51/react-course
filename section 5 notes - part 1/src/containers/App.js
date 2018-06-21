@@ -8,8 +8,13 @@ class App extends Component {
   //the constructor is the only place you can access props without using "this" 
   constructor(props) {
     super(props);
-    console.log('[App.js] inside constructor')
+    console.log('[App.js] inside constructor', props);
   }
+
+  componentWillMount() {
+    console.log('[App.js] inside componentWillMount');
+  }
+  
   state = {
     persons: [
       { id: 'asfa1', name: 'Max', age: 28 },

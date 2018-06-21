@@ -53,7 +53,9 @@ Updating
 Unmounting 
 Error Handling
 
-Each component has several “lifecycle methods” that you can override to run code at particular times in the process. In the list below, non-commonly used lifecycle methods are *'d. The rest of them exist for relatively rare use cases.
+Each component has several “lifecycle methods” that you can override to run code at particular times in the process. In the list below, non-commonly used lifecycle methods are *'d. For a list of the parameters they take, see the react docs. Some of them e.g. shouldComponentUpdate() can stop the lifecycle for example if they return false. This can be good for efficiency.
+
+Note:A "side effect" is anything that affects something outside the scope of the function being executed. 
 
                                                         Mounting
 These methods are called in the following order when an instance of a component is being created and inserted into the DOM:
@@ -61,14 +63,16 @@ These methods are called in the following order when an instance of a component 
 constructor()
 *static getDerivedStateFromProps()
 render()
+Note: child components get rendered here.
 componentDidMount()
 
                                                         Updating
 An update can be caused by changes to props or state. These methods are called in the following order when a component is being re-rendered:
 
 *static getDerivedStateFromProps()
-*shouldComponentUpdate()
+*shouldComponentUpdate()     
 render()
+Note: child components get rendered here.
 *getSnapshotBeforeUpdate()
 componentDidUpdate()
 
@@ -98,6 +102,51 @@ did same for person component
 
 /////////////////////////
 //Component creation lifecycle in action
+The lifecycle methods are referred to as hooks
+render() is the only method that is mandatory for the stateful component.
+They get called in the order stated above.
+
+
+//////////////////////////////
+//Performace Gains with Pure Components
+
+React.PureComponent is similar to React.Component. The difference between them is that React.Component doesn’t implement shouldComponentUpdate(), but React.PureComponent implements it with a shallow prop and state comparison.
+
+If your React component’s render() function renders the same result given the same props and state, you can use React.PureComponent for a performance boost in some cases. 
+
+You should only use pure components if you know that updates may not be required - in other words if you have a component that you know the props may not change, this would be a good time to use pure component. There is no point making everything a pure component because if you put it somewhere where it will always succeed, for example in a child component and the check to see if props or state have changed has happened on it's parent component, then it is a waste of time and will impeed performance. 
+
+Note: React.PureComponent’s shouldComponentUpdate() only shallowly compares the objects. If these contain complex data structures, it may produce false-negatives for deeper differences. Only extend PureComponent when you expect to have simple props and state.
+
+////////////////////////////
+//How react updates the app and component tree
+Basically from the root (app.js) down.
+
+///////////////////////////
+//Understanding React's DOM Updating strategy
+Say shoudComponentUpdate() is passed which means that render can be called what happens next is that react compares the old virtual DOM with the future DOM.
+If there is differences then it updates the real DOM, but onlu in the places where differences were detected.
+If there isn't (this can occur if shoudComponentUpdate() fails to catch somthing) then the real DOM isn't touched.
+accessing the real DOM is very slow so this is why it's important to do it as little as possible.
+
+////////////////////////////////
+//Returning Adjacent elements
+
+Maybe come back to this at some point.
+
+///////////////////////////////
+//Higher order components (HOCs)
+Componets that wrap other components
+can be usefull to add the same functionality to multiple child components
+ 
+
+
+
+
+
+
+
+
 
 
 
