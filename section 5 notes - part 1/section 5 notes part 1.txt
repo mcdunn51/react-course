@@ -138,7 +138,28 @@ Maybe come back to this at some point.
 //Higher order components (HOCs)
 Componets that wrap other components
 can be usefull to add the same functionality to multiple child components
- 
+
+/////////////////////////////
+//A different approach to HOCs
+skipped L96 and 97
+
+/////////////////////////////////
+//using setState correctly
+setState runs asynchronously 
+we use it in an immutable way
+sometimes you may have a state update that depends on the old state. Because it runs asynchronously, the new set state could have run before another one has finished.
+To get round this you can call setState with prevState as a parameter.
+
+////////////////////////////
+//validating props
+
+
+
+
+
+
+
+
 
 
 
