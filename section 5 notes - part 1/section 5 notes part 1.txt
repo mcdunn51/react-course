@@ -150,8 +150,7 @@ we use it in an immutable way
 sometimes you may have a state update that depends on the old state. Because it runs asynchronously, the new set state could have run before another one has finished.
 To get round this you can call setState with prevState as a parameter.
 
-////////////////////////////
-//validating props
+
 
 
 
